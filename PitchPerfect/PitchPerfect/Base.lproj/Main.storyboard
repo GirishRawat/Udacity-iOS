@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PitchPerfect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sa6-SX-qhL">
+                                <rect key="frame" x="110" y="266" width="155" height="155"/>
+                                <state key="normal" image="RecordButton"/>
+                                <connections>
+                                    <action selector="recordButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5wu-G1-GZo"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqh-cO-rwe">
+                                <rect key="frame" x="136" y="441" width="102" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wh0-h2-YrB">
+                                <rect key="frame" x="153" y="481" width="68" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="68" id="9qs-lv-Bau"/>
+                                    <constraint firstAttribute="height" constant="68" id="Ume-zh-wZ5"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="68" id="uns-cK-rCb"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="68" id="zS8-3X-0kI"/>
+                                </constraints>
+                                <state key="normal" image="Stop"/>
+                                <connections>
+                                    <action selector="stopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aZY-d2-x7d"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Wh0-h2-YrB" firstAttribute="centerX" secondItem="nqh-cO-rwe" secondAttribute="centerX" id="62h-C9-Sll"/>
+                            <constraint firstItem="Sa6-SX-qhL" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="6ma-K7-TtG"/>
+                            <constraint firstItem="Sa6-SX-qhL" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="IdZ-Ss-quU"/>
+                            <constraint firstItem="Wh0-h2-YrB" firstAttribute="top" secondItem="Sa6-SX-qhL" secondAttribute="bottom" constant="60" id="h7T-41-R48"/>
+                            <constraint firstItem="nqh-cO-rwe" firstAttribute="centerX" secondItem="Sa6-SX-qhL" secondAttribute="centerX" id="mPK-xN-Dto"/>
+                            <constraint firstItem="nqh-cO-rwe" firstAttribute="top" secondItem="Sa6-SX-qhL" secondAttribute="bottom" constant="19.5" id="rBx-qz-UF1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="recordButton" destination="Sa6-SX-qhL" id="lxf-SZ-aoG"/>
+                        <outlet property="recordingLabel" destination="nqh-cO-rwe" id="2sB-zW-44I"/>
+                        <outlet property="stopRecordingButton" destination="Wh0-h2-YrB" id="wQj-eo-2VV"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="31.934032983508249"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="RecordButton" width="155" height="155"/>
+        <image name="Stop" width="155" height="155"/>
+    </resources>
+</document>
