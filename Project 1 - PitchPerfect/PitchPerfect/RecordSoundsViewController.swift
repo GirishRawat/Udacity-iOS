@@ -23,6 +23,7 @@ class RecordSoundsViewController: UIViewController,  AVAudioRecorderDelegate {
         super.viewWillAppear(animated)
 //        print("view will appear called")
         stopRecordingButton.isHidden = true
+        stopRecordingButton.isEnabled = true
         recordButton.isEnabled = true
     }
     
