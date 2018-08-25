@@ -150,6 +150,7 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
         case .notPlaying:
             setPlayButtonsEnabled(true)
             stopButton.isEnabled = false
+
         }
     }
     

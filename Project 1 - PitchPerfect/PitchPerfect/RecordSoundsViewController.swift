@@ -12,16 +12,16 @@ import AVFoundation
 
 class RecordSoundsViewController: UIViewController,  AVAudioRecorderDelegate {
     
-    
-     var audioRecorder: AVAudioRecorder!
+    var audioRecorder: AVAudioRecorder!
     @IBOutlet weak var stopRecordingButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var stopRecordingLabel: UIButton!
     @IBOutlet weak var recordingLabel: UILabel!
     
+    enum PlayingState { case recording, notRecording }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        print("view will appear called")
         stopRecordingButton.isHidden = true
         stopRecordingButton.isEnabled = true
         recordButton.isEnabled = true
@@ -32,25 +32,30 @@ class RecordSoundsViewController: UIViewController,  AVAudioRecorderDelegate {
         audioRecorder?.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    func configureUI(_ playState: PlayingState) {
+        switch(playState) {
+        case .recording:
+            recordingLabel.text = "Recording in progress"
+            stopRecordingButton.isHidden = false
+            recordButton.isEnabled = false
+        case .notRecording:
+            recordingLabel.text = "Tap to record"
+            stopRecordingButton.isEnabled = false
+        }
+    }
+    
 
     @IBAction func recordButton(_ sender: UIButton) {
-        print("Recording audio..")
-        recordingLabel.text = "Recording in progress"
-        stopRecordingButton.isHidden = false
-        recordButton.isEnabled = false
         
-        print(" See logs here ")
-        
-        print(audioRecorder)
+        configureUI(.recording)
         
         let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)[0] as String
         let recordingName = "recordedVoice.wav"
         let pathArray = [dirPath, recordingName]
         let filePath = NSURL.fileURL(withPathComponents: pathArray)
-        
         let session = AVAudioSession.sharedInstance()
         try! session.setCategory(AVAudioSessionCategoryPlayAndRecord)
-        
         
         try! audioRecorder = AVAudioRecorder(url: filePath!, settings: [:])
         audioRecorder.delegate = self
@@ -60,9 +65,8 @@ class RecordSoundsViewController: UIViewController,  AVAudioRecorderDelegate {
     }
     
     @IBAction func stopRecording(_ sender: Any) {
-//        print("Recording Stopped")
-        recordingLabel.text = "Tap to record"
-        stopRecordingButton.isEnabled = false
+        
+        configureUI(.notRecording)
         
         audioRecorder?.stop()
         let audioSession = AVAudioSession.sharedInstance()
@@ -78,7 +82,6 @@ class RecordSoundsViewController: UIViewController,  AVAudioRecorderDelegate {
             print("Problem saving audio file")
         }
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "stopRecording"){
