@@ -68,11 +68,11 @@
             </objects>
             <point key="canvasLocation" x="972" y="31.934032983508249"/>
         </scene>
-        <!--View Controller-->
+        <!--Play Sounds View Controller-->
         <scene sceneID="zQX-fr-Uyj">
             <objects>
-                <viewController id="hyG-le-nEJ" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="mLE-ic-TGm">
+                <viewController id="hyG-le-nEJ" customClass="PlaySoundsViewController" customModule="PitchPerfect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mLE-ic-TGm" customClass="Play">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
